@@ -36,9 +36,12 @@ const Home: FC = () => {
   }, [pokemonList]);
 
   return (
-    <div>
+    <div
+      className="min-h-screen bg-fixed bg-cover bg-center"
+      style={{ backgroundImage: 'url(public/images/bg-home02.jpg)' }}
+    >
       <Header />
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto">
         <h1 className="text-center text-2xl font-bold mb-4">
           Encontre seu Pokémon aqui
         </h1>
