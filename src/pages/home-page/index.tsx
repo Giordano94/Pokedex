@@ -41,11 +41,13 @@ const Home: FC = () => {
       style={{ backgroundImage: 'url(public/images/bg-home02.jpg)' }}
     >
       <Header />
-      <div className="container mx-auto">
-        <h1 className="text-center text-2xl font-bold mb-4">
-          Encontre seu Pokémon aqui
-        </h1>
+      <h1 className="text-center text-2xl font-bold mb-4">
+        Encontre seu Pokémon aqui
+      </h1>
+      <div className="flex justify-center mb-4">
         <SearchInput />
+      </div>
+      <div className="flex justify-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {renderPokemonCard}
         </div>
