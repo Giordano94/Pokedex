@@ -17,9 +17,9 @@ const PokemonCard: FC<PokemonCardProps> = ({ image, number, name, types }) => {
   }, [types]);
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card w-80 bg-base-100 shadow-xl m-4">
       <figure>
-        <img src={image} alt={name} />
+        <img src={image} alt={name} className="w-52 h-52" />
       </figure>
       <p>{number}</p>
       <div className="card-body">
