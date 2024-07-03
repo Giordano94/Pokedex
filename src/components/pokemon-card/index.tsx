@@ -24,7 +24,9 @@ const PokemonCard: FC<PokemonCardProps> = ({ image, id, name, types }) => {
       </figure>
       <div className="card-body bg-gray-700 rounded-b-2xl">
         <p className="font-bold">{formatPokemonId(id)}</p>
-        <h2 className="card-title">{name}</h2>
+        <h2 className="card-title">
+          {name.charAt(0).toUpperCase() + name.slice(1)}
+        </h2>
         <div>{renderBadges}</div>
       </div>
     </div>
