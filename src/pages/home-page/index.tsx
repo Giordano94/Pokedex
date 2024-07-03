@@ -28,7 +28,7 @@ const Home: FC = () => {
       <PokemonCard
         key={pokemon.id}
         image={pokemon.sprites.front_default}
-        number={pokemon.id}
+        id={pokemon.id}
         name={pokemon.name}
         types={pokemon.types.map((type) => type.type.name)}
       />

@@ -1,13 +1,14 @@
 import { FC, useMemo } from 'react';
+import { formatPokemonId } from '../../utils/format-pokemon-id';
 
 interface PokemonCardProps {
   image: string;
-  number: string;
+  id: number;
   name: string;
   types: string[];
 }
 
-const PokemonCard: FC<PokemonCardProps> = ({ image, number, name, types }) => {
+const PokemonCard: FC<PokemonCardProps> = ({ image, id, name, types }) => {
   const renderBadges = useMemo(() => {
     return types.map((type, index) => (
       <span key={index} className="badge">
@@ -21,8 +22,8 @@ const PokemonCard: FC<PokemonCardProps> = ({ image, number, name, types }) => {
       <figure>
         <img src={image} alt={name} className="w-52 h-52" />
       </figure>
-      <p>{number}</p>
       <div className="card-body">
+        <p className="font-bold">{formatPokemonId(id)}</p>
         <h2 className="card-title">{name}</h2>
         <div>{renderBadges}</div>
       </div>
