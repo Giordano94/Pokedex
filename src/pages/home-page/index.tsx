@@ -42,7 +42,7 @@ const Home: FC = () => {
     >
       <Header />
       <h1 className="text-center text-2xl font-bold mb-4">
-        Encontre seu Pokémon aqui
+        Encontre seu Pokémon
       </h1>
       <div className="flex justify-center mb-4">
         <SearchInput />
