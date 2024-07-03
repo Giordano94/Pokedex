@@ -1,5 +1,6 @@
 import { FC, useMemo } from 'react';
 import { formatPokemonId } from '../../utils/format-pokemon-id';
+import { typeColors } from '../../utils/type-colors';
 
 interface PokemonCardProps {
   image: string;
@@ -11,7 +12,13 @@ interface PokemonCardProps {
 const PokemonCard: FC<PokemonCardProps> = ({ image, id, name, types }) => {
   const renderBadges = useMemo(() => {
     return types.map((type, index) => (
-      <span key={index} className="badge">
+      <span
+        key={index}
+        className={`badge m-1 font-black px-3 py-3  ${
+          typeColors[type.toLowerCase()]
+        }`}
+        style={{ color: '#f2f2f2' }}
+      >
         {type}
       </span>
     ));
