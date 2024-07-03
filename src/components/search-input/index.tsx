@@ -2,9 +2,13 @@ import { FC } from 'react';
 
 const SearchInput: FC = () => {
   return (
-    <div>
+    <div className="mb-4 mx-3">
       <label className="input input-bordered flex items-center gap-2">
-        <input type="text" className="grow" placeholder="Search" />
+        <input
+          type="text"
+          className="grow"
+          placeholder="Digite o nome do Pokemon"
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
