@@ -4,6 +4,6 @@ export const formatPokemonId = (id: number): string => {
   } else if (id < 100) {
     return `#00${id}`;
   } else {
-    return `#${id}`;
+    return `#0${id}`;
   }
 };
