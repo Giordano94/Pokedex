@@ -1,8 +1,27 @@
-import { FC } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import SearchInput from '../../components/search-input';
+import { PokemonDetails } from '../../ types';
+import { fetchPokemons } from '../../data/service';
 
 const Home: FC = () => {
+  const [pokemonList, setPokemonList] = useState<PokemonDetails[]>([]);
+
+  const fetchPokemonsData = useCallback(async () => {
+    try {
+      const data = await fetchPokemons();
+      if (data) {
+        setPokemonList(data);
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchPokemonsData();
+  }, [fetchPokemonsData]);
+
   return (
     <div>
       <Header />
