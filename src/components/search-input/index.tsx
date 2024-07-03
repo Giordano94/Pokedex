@@ -1,6 +1,10 @@
 import { FC } from 'react';
 
-const SearchInput: FC = () => {
+interface SearchInputProps {
+  onChange: (value: string) => void;
+}
+
+const SearchInput: FC<SearchInputProps> = ({ onChange }) => {
   return (
     <div className="mb-4 mx-3">
       <label className="input input-bordered flex items-center gap-2">
@@ -8,6 +12,7 @@ const SearchInput: FC = () => {
           type="text"
           className="grow"
           placeholder="Digite o nome do Pokemon"
+          onChange={(e) => onChange(e.target.value)}
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
