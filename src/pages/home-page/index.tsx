@@ -1,5 +1,5 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import Header from '../../components/Header';
+import Header from '../../components/header';
 import SearchInput from '../../components/search-input';
 import { PokemonDetails } from '../../ types';
 import { fetchPokemons } from '../../data/service';
@@ -44,7 +44,7 @@ const Home: FC = () => {
       className="min-h-screen bg-fixed bg-cover bg-center"
       style={{ backgroundImage: 'url(public/images/bg-home02.jpg)' }}
     >
-      <Header />
+      <Header onSearchChange={setSearchTerm} />
       <h1 className="text-center text-2xl font-bold mb-4">
         Encontre seu Pokémon
       </h1>
