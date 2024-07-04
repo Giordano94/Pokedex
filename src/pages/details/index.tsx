@@ -29,9 +29,7 @@ const DetailsPage: FC<DetailsPageProps> = () => {
   }, [fetchPokemonDetailsData]);
 
   return (
-    <div>
-      <PokemonDetails />
-    </div>
+    <div>{pokemonDetails && <PokemonDetails details={pokemonDetails} />}</div>
   );
 };
 
