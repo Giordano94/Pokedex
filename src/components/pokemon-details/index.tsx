@@ -14,8 +14,12 @@ const PokemonDetails: FC<PokemonDetailsProps> = ({ details }) => {
     <div className="text-center">
       <h1 className="text-5xl font-bold mb-4">{`${
         name.charAt(0).toUpperCase() + name.slice(1)
-      } Nº${formatPokemonId(id)}`}</h1>
-      <img src={sprites.front_default} alt={name} />
+      } |  Nº${formatPokemonId(id)}`}</h1>
+      <img
+        src={sprites.front_default}
+        alt={name}
+        className="mx-auto mb-4 h-80 w-80"
+      />
       <InfoCard
         height={height}
         weight={weight}
