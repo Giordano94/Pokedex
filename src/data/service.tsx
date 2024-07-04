@@ -40,12 +40,12 @@ export const fetchPokemonDetails = async (
     );
 
     const details = response.data;
-    const abilityId = details.id;
-    const abilityResponse = await axios.get(
-      `https://pokeapi.co/api/v2/ability/${abilityId}`
+    const characteristicId = details.id;
+    const characteristicResponse = await axios.get(
+      `https://pokeapi.co/api/v2/characteristic/${characteristicId}`
     );
 
-    details.abilities = abilityResponse.data;
+    details.characteristics = characteristicResponse.data;
 
     return details;
   } catch (error) {
