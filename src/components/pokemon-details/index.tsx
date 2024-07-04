@@ -11,7 +11,7 @@ const PokemonDetails: FC<PokemonDetailsProps> = ({ details }) => {
   const { name, id, sprites, height, weight, abilities, types } = details;
 
   return (
-    <div>
+    <div className="text-center">
       <h1>{`${name} Nº${formatPokemonId(id)} `}</h1>
       <img src={sprites.front_default} alt={name} />
       <InfoCard
