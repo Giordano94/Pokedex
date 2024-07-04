@@ -4,7 +4,11 @@ export interface Pokemon {
 }
 
 export interface Ability {
-  effect: string;
+  name: string;
+}
+
+export interface PokemonAbilities {
+  ability: Ability;
 }
 
 export interface PokemonDetails {
@@ -14,5 +18,5 @@ export interface PokemonDetails {
   weight: number;
   types: Array<{ type: { name: string } }>;
   sprites: { front_default: string };
-  abilities: Ability[];
+  abilities: PokemonAbilities[];
 }
