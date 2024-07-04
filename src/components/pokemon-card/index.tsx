@@ -1,6 +1,7 @@
 import { FC, useMemo } from 'react';
 import { formatPokemonId } from '../../utils/format-pokemon-id';
 import { typeColors } from '../../utils/type-colors';
+import { Link } from 'react-router-dom';
 
 interface PokemonCardProps {
   image: string;
@@ -25,18 +26,20 @@ const PokemonCard: FC<PokemonCardProps> = ({ image, id, name, types }) => {
   }, [types]);
 
   return (
-    <div className="card bg-base-100 shadow-xl w-72 lg:w-64 m-4">
-      <figure>
-        <img src={image} alt={name} className="w-52 h-52" />
-      </figure>
-      <div className="card-body bg-gray-700 rounded-b-2xl">
-        <p className="font-bold">{formatPokemonId(id)}</p>
-        <h2 className="card-title">
-          {name.charAt(0).toUpperCase() + name.slice(1)}
-        </h2>
-        <div>{renderBadges}</div>
+    <Link to={`/pokemon/${id}`}>
+      <div className="card bg-base-100 shadow-xl w-72 lg:w-64 m-4">
+        <figure>
+          <img src={image} alt={name} className="w-52 h-52" />
+        </figure>
+        <div className="card-body bg-gray-700 rounded-b-2xl">
+          <p className="font-bold">{formatPokemonId(id)}</p>
+          <h2 className="card-title">
+            {name.charAt(0).toUpperCase() + name.slice(1)}
+          </h2>
+          <div>{renderBadges}</div>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
