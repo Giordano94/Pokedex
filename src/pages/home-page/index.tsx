@@ -1,6 +1,5 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import Header from '../../components/header';
-import SearchInput from '../../components/search-input';
 import { PokemonDetails } from '../../ types';
 import { fetchPokemons } from '../../data/service';
 import PokemonCard from '../../components/pokemon-card';
@@ -48,9 +47,6 @@ const Home: FC = () => {
       <h1 className="text-center text-2xl font-bold mb-4">
         Encontre seu Pokémon
       </h1>
-      <div className="flex justify-center mb-4">
-        <SearchInput onChange={setSearchTerm} />
-      </div>
       <div className="flex justify-center">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {renderPokemonCard}
