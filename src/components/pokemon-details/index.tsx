@@ -12,7 +12,9 @@ const PokemonDetails: FC<PokemonDetailsProps> = ({ details }) => {
 
   return (
     <div className="text-center">
-      <h1>{`${name} Nº${formatPokemonId(id)} `}</h1>
+      <h1 className="text-5xl font-bold mb-4">{`${
+        name.charAt(0).toUpperCase() + name.slice(1)
+      } Nº${formatPokemonId(id)}`}</h1>
       <img src={sprites.front_default} alt={name} />
       <InfoCard
         height={height}
