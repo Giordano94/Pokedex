@@ -30,3 +30,26 @@ export const fetchPokemons = async (
     return [];
   }
 };
+
+export const fetchPokemonDetails = async (
+  pokemonId: string
+): Promise<PokemonDetails> => {
+  try {
+    const response = await axios.get<PokemonDetails>(
+      `${BASE_URL}/${pokemonId}`
+    );
+
+    const details = response.data;
+    const abilityId = details.id;
+    const abilityResponse = await axios.get(
+      `https://pokeapi.co/api/v2/ability/${abilityId}`
+    );
+
+    details.abilities = abilityResponse.data;
+
+    return details;
+  } catch (error) {
+    console.error('Error fetching Pokemon details:', error);
+    throw error;
+  }
+};
