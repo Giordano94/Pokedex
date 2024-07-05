@@ -10,7 +10,7 @@ interface InfoCardProps {
 
 const InfoCard: FC<InfoCardProps> = ({ height, weight, abilities, types }) => {
   return (
-    <div className=" bg-purple-500 p-4 rounded-lg shadow-lg w-80 mt-12">
+    <div className=" bg-purple-500 p-4 rounded-lg shadow-lg w-80">
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label htmlFor="weight" className="block text-white font-bold">
