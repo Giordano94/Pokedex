@@ -2,13 +2,23 @@ import { FC } from 'react';
 import { formatPokemonId } from '../../utils/format-pokemon-id';
 import { PokemonDetails as PokemonDetailsType } from '../../ types';
 import InfoCard from '../info-card';
+import CharacteristicsCard from '../characteristics-card';
 
 interface PokemonDetailsProps {
   details: PokemonDetailsType;
 }
 
 const PokemonDetails: FC<PokemonDetailsProps> = ({ details }) => {
-  const { name, id, sprites, height, weight, abilities, types } = details;
+  const {
+    name,
+    id,
+    sprites,
+    height,
+    weight,
+    abilities,
+    types,
+    characteristics,
+  } = details;
 
   return (
     <div className="text-center">
@@ -20,12 +30,17 @@ const PokemonDetails: FC<PokemonDetailsProps> = ({ details }) => {
         alt={name}
         className="mx-auto mb-4 h-80 w-80"
       />
-      <InfoCard
-        height={height}
-        weight={weight}
-        abilities={abilities}
-        types={types.map((type) => type.type.name)}
-      />
+      <div className="flex justify-center items-center gap-4">
+        <CharacteristicsCard
+          characteristics={characteristics.descriptions[7].description}
+        />
+        <InfoCard
+          height={height}
+          weight={weight}
+          abilities={abilities}
+          types={types.map((type) => type.type.name)}
+        />
+      </div>
     </div>
   );
 };
