@@ -29,7 +29,9 @@ const DetailsPage: FC<DetailsPageProps> = () => {
   }, [fetchPokemonDetailsData]);
 
   return (
-    <div>{pokemonDetails && <PokemonDetails details={pokemonDetails} />}</div>
+    <div className="flex justify-center items-center h-screen">
+      {pokemonDetails && <PokemonDetails details={pokemonDetails} />}
+    </div>
   );
 };
 
