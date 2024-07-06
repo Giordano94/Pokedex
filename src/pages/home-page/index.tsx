@@ -4,27 +4,46 @@ import { PokemonDetails } from '../../ types';
 import { fetchPokemons } from '../../data/service';
 import PokemonCard from '../../components/pokemon-card';
 import { useDebounce } from 'use-debounce';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const Home: FC = () => {
   const [pokemonList, setPokemonList] = useState<PokemonDetails[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [page, setPage] = useState<number>(0);
+  const [hasMore, setHasMore] = useState<boolean>(true);
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 700);
 
-  const fetchPokemonsData = useCallback(async () => {
-    try {
-      const data = await fetchPokemons(debouncedSearchTerm);
-      if (data) {
-        setPokemonList(data);
+  const fetchPokemonsData = useCallback(
+    async (offset = 0) => {
+      try {
+        const data = await fetchPokemons(offset, 8, debouncedSearchTerm);
+        if (data) {
+          setPokemonList((prevList) =>
+            offset === 0 ? data : [...prevList, ...data]
+          );
+        }
+        if (data.length < 8) {
+          setHasMore(false);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
       }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }, [debouncedSearchTerm]);
+    },
+    [debouncedSearchTerm]
+  );
 
   useEffect(() => {
-    fetchPokemonsData();
+    setPage(0);
+    setHasMore(true);
+    fetchPokemonsData(0);
   }, [fetchPokemonsData]);
+
+  const fetchMoreData = useCallback(() => {
+    const nextPage = page + 1;
+    setPage(nextPage);
+    fetchPokemonsData(nextPage * 8);
+  }, [page, fetchPokemonsData]);
 
   const renderPokemonCard = useMemo(() => {
     return pokemonList.map((pokemon) => (
@@ -48,9 +67,17 @@ const Home: FC = () => {
         <h1 className="text-center text-2xl font-bold mb-4">
           Encontre seu Pokémon
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {renderPokemonCard}
-        </div>
+
+        <InfiniteScroll
+          dataLength={pokemonList.length}
+          next={fetchMoreData}
+          hasMore={hasMore}
+          loader={<h4>Loading...</h4>}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {renderPokemonCard}
+          </div>
+        </InfiniteScroll>
       </div>
     </div>
   );
