@@ -64,10 +64,6 @@ const Home: FC = () => {
     >
       <Header onSearchChange={setSearchTerm} />
       <div className="flex flex-col items-center justify-center pt-32 px-4">
-        <h1 className="text-center text-2xl font-bold mb-4">
-          Encontre seu Pokémon
-        </h1>
-
         <InfiniteScroll
           dataLength={pokemonList.length}
           next={fetchMoreData}
