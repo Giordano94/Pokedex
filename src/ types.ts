@@ -25,7 +25,7 @@ export interface PokemonDetails {
   height: number;
   weight: number;
   types: Array<{ type: { name: string } }>;
-  sprites: { front_default: string };
   abilities: PokemonAbilities[];
   characteristics: Characteristics;
+  sprites: { other: { showdown: { front_default: string } } };
 }
