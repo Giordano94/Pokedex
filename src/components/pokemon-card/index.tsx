@@ -29,7 +29,7 @@ const PokemonCard: FC<PokemonCardProps> = ({ image, id, name, types }) => {
     <Link to={`/pokemon/${id}`}>
       <div className="card bg-base-100 shadow-xl w-72 lg:w-64 m-4">
         <figure>
-          <img src={image} alt={name} className="w-52 h-52" />
+          <img src={image} alt={name} className="w-48 h-48" />
         </figure>
         <div className="card-body bg-gray-700 rounded-b-2xl">
           <p className="font-bold">{formatPokemonId(id)}</p>
