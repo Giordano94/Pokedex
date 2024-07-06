@@ -4,6 +4,8 @@ import { Pokemon, PokemonDetails } from '../ types';
 const BASE_URL = 'https://pokeapi.co/api/v2/pokemon';
 
 export const fetchPokemons = async (
+  offset = 0,
+  limit = 20,
   searchTerm?: string
 ): Promise<PokemonDetails[]> => {
   try {
@@ -14,7 +16,9 @@ export const fetchPokemons = async (
       return [response.data];
     }
 
-    const response = await axios.get(`${BASE_URL}?limit=151`);
+    const response = await axios.get(
+      `${BASE_URL}?offset=${offset}&limit=${limit}`
+    );
     const pokemons: Pokemon[] = response.data.results;
 
     const detailedPokemons = await Promise.all(
