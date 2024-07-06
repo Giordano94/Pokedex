@@ -26,7 +26,7 @@ const PokemonDetails: FC<PokemonDetailsProps> = ({ details }) => {
         name.charAt(0).toUpperCase() + name.slice(1)
       } |  Nº${formatPokemonId(id)}`}</h1>
       <img
-        src={sprites.front_default}
+        src={sprites.other.showdown.front_default}
         alt={name}
         className="mx-auto mb-4 h-80 w-80"
       />
