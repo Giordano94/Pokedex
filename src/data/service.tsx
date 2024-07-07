@@ -32,7 +32,11 @@ export const fetchPokemons = async (
 
       const detailedPokemons = fetchDetailedPokemons(pokemons);
 
-      return detailedPokemons;
+      const filteredPokemons = (await detailedPokemons).filter((pokemon) =>
+        pokemon.name.startsWith(searchTerm.toLowerCase())
+      );
+
+      return filteredPokemons;
     }
 
     const response = await axios.get(
