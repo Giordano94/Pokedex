@@ -32,7 +32,7 @@ const PokemonDetails: FC<PokemonDetailsProps> = ({ details }) => {
           <img
             src={sprites.other.showdown.front_default}
             alt={name}
-            className="mx-auto mb-4 h-80 w-80"
+            className="mx-auto mb-4 h-48 w-48 md:h-80 md:w-80"
           />
           <div className="flex justify-center items-center gap-4">
             <CharacteristicsCard
