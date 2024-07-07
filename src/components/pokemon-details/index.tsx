@@ -34,7 +34,7 @@ const PokemonDetails: FC<PokemonDetailsProps> = ({ details }) => {
             alt={name}
             className="mx-auto mb-4 h-48 w-48 md:h-80 md:w-80"
           />
-          <div className="flex justify-center items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
             <CharacteristicsCard
               characteristics={characteristics.descriptions[7].description}
             />
