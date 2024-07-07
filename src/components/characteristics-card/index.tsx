@@ -8,7 +8,7 @@ const CharacteristicsCard: FC<CharacteristicsCardProps> = ({
   characteristics,
 }) => {
   return (
-    <div className=" bg-yellow-400 rounded-lg h-[168px] w-80 flex justify-center items-center">
+    <div className=" bg-yellow-400 w-56 md:w-80 rounded-lg h-[168px] flex justify-center items-center">
       <div>
         <label htmlFor="characteristics" className="block text-white font-bold">
           Characteristics
