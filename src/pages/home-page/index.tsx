@@ -58,10 +58,7 @@ const Home: FC = () => {
   }, [pokemonList]);
 
   return (
-    <div
-      className="min-h-screen bg-fixed bg-cover bg-center"
-      style={{ backgroundImage: 'url(public/images/bg-home02.jpg)' }}
-    >
+    <div>
       <Header onSearchChange={setSearchTerm} />
       <div className="flex flex-col items-center justify-center pt-32 px-4">
         <InfiniteScroll
