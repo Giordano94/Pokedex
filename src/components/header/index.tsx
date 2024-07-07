@@ -3,7 +3,7 @@ import pokemonLogo from '/public/images/pokemon-logo.png';
 import SearchInput from '../search-input';
 
 interface HeaderProps {
-  onSearchChange: (value: string) => void;
+  onSearchChange?: (value: string) => void;
 }
 
 const Header: FC<HeaderProps> = ({ onSearchChange }) => {
@@ -15,7 +15,7 @@ const Header: FC<HeaderProps> = ({ onSearchChange }) => {
         alt="pokemon-logo"
       />
       <div className="mt-6 flex-grow md:flex-grow-0">
-        <SearchInput onChange={onSearchChange} />
+        <SearchInput onChange={onSearchChange ? onSearchChange : () => {}} />
       </div>
     </header>
   );
