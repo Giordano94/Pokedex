@@ -26,7 +26,7 @@ const PokemonDetails: FC<PokemonDetailsProps> = ({ details }) => {
       <Header />
       <div className="flex justify-center items-center">
         <div className="rounded-lg bg-base-100 p-8 text-center mt-12 md:mt-24 xl:mt-32">
-          <h1 className="text-5xl font-bold mb-4">{`${
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4">{`${
             name.charAt(0).toUpperCase() + name.slice(1)
           } |  Nº${formatPokemonId(id)}`}</h1>
           <img
