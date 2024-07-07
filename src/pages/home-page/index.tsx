@@ -23,6 +23,10 @@ const Home: FC = () => {
             offset === 0 ? data : [...prevList, ...data]
           );
         }
+        if (debouncedSearchTerm) {
+          setPokemonList(data);
+        }
+
         if (data.length < 8) {
           setHasMore(false);
         }
