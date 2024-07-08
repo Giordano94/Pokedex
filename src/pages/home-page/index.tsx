@@ -1,16 +1,17 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
-import Header from '../../components/header';
 import { PokemonDetails } from '../../ types';
 import { fetchPokemons } from '../../data/service';
 import PokemonCard from '../../components/pokemon-card';
 import { useDebounce } from 'use-debounce';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useHeaderContext } from '../../context/header-contex';
 
 const Home: FC = () => {
   const [pokemonList, setPokemonList] = useState<PokemonDetails[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string>('');
   const [page, setPage] = useState<number>(0);
   const [hasMore, setHasMore] = useState<boolean>(true);
+
+  const { searchTerm } = useHeaderContext();
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 700);
 
@@ -63,7 +64,6 @@ const Home: FC = () => {
 
   return (
     <div>
-      <Header onSearchChange={setSearchTerm} />
       <div className="flex flex-col items-center justify-center pt-32 px-4">
         <InfiniteScroll
           dataLength={pokemonList.length}
