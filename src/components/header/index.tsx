@@ -2,12 +2,11 @@ import { FC } from 'react';
 import pokemonLogo from '/public/images/pokemon-logo.png';
 import SearchInput from '../search-input';
 import { useLocation } from 'react-router-dom';
+import { useHeaderContext } from '../../context/header-contex';
 
-interface HeaderProps {
-  onSearchChange?: (value: string) => void;
-}
+const Header: FC = () => {
+  const { setSearchTerm } = useHeaderContext();
 
-const Header: FC<HeaderProps> = ({ onSearchChange }) => {
   const location = useLocation();
   const isPokemonRoute = location.pathname.includes('/pokemon-details/');
 
@@ -26,7 +25,7 @@ const Header: FC<HeaderProps> = ({ onSearchChange }) => {
       />
       {!isPokemonRoute && (
         <div className="mt-6 flex-grow md:flex-grow-0">
-          <SearchInput onChange={onSearchChange ? onSearchChange : () => {}} />
+          <SearchInput onChange={setSearchTerm} />
         </div>
       )}
     </header>
