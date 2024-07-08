@@ -22,7 +22,7 @@ const fetchDetailedPokemons = async (
 
 export const fetchPokemons = async (
   offset = 0,
-  limit = 20,
+  limit = 8,
   searchTerm?: string
 ): Promise<PokemonDetails[]> => {
   try {
@@ -30,13 +30,13 @@ export const fetchPokemons = async (
       const response = await axios.get(`${BASE_URL}/?limit=150}`);
       const pokemons: Pokemon[] = response.data.results;
 
-      const detailedPokemons = fetchDetailedPokemons(pokemons);
-
-      const filteredPokemons = (await detailedPokemons).filter((pokemon) =>
+      const filteredPokemons = (await pokemons).filter((pokemon) =>
         pokemon.name.startsWith(searchTerm.toLowerCase())
       );
 
-      return filteredPokemons;
+      const detailedPokemons = fetchDetailedPokemons(filteredPokemons);
+
+      return detailedPokemons;
     }
 
     const response = await axios.get(
