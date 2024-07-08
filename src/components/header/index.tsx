@@ -9,7 +9,7 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ onSearchChange }) => {
   const location = useLocation();
-  const isPokemonRoute = location.pathname.includes('/pokemon/');
+  const isPokemonRoute = location.pathname.includes('/pokemon-details/');
 
   return (
     <header
