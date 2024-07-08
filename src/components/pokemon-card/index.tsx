@@ -26,7 +26,7 @@ const PokemonCard: FC<PokemonCardProps> = ({ image, id, name, types }) => {
   }, [types]);
 
   return (
-    <Link to={`/pokemon/${id}`}>
+    <Link to={`/pokemon-details/${id}`}>
       <div className="card bg-base-100 shadow-xl w-72 lg:w-64 m-4">
         <figure>
           <img src={image} alt={name} className="w-48 h-48" />
