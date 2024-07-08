@@ -3,7 +3,6 @@ import { formatPokemonId } from '../../utils/format-pokemon-id';
 import { PokemonDetails as PokemonDetailsType } from '../../ types';
 import InfoCard from '../info-card';
 import CharacteristicsCard from '../characteristics-card';
-import Header from '../header';
 
 interface PokemonDetailsProps {
   details: PokemonDetailsType;
@@ -23,7 +22,6 @@ const PokemonDetails: FC<PokemonDetailsProps> = ({ details }) => {
 
   return (
     <div>
-      <Header />
       <div className="flex justify-center items-center">
         <div className="rounded-lg bg-base-100 p-8 text-center mt-12 md:mt-24 xl:mt-32 mb-6">
           <h1 className="text-3xl sm:text-4xl font-bold mb-4">{`${
