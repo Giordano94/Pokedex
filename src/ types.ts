@@ -27,8 +27,5 @@ export interface PokemonDetails {
   types: Array<{ type: { name: string } }>;
   abilities: PokemonAbilities[];
   characteristics: Characteristics;
-  sprites: {
-    front_default: string;
-    other: { showdown: { front_default: string } };
-  };
+  sprites: { other: { showdown: { front_default: string } } };
 }

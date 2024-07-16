@@ -8,14 +8,12 @@ interface DetailsPageProps {}
 
 const DetailsPage: FC<DetailsPageProps> = () => {
   const [pokemonDetails, setPokemonDetails] = useState<PokemonDetailsType>();
-  const [loading, setLoading] = useState<boolean>(false);
 
   const { id } = useParams();
 
   const fetchPokemonDetailsData = useCallback(async () => {
     try {
       if (id) {
-        setLoading(true);
         const data = await fetchPokemonDetails(id);
         if (data) {
           setPokemonDetails(data);
@@ -23,8 +21,6 @@ const DetailsPage: FC<DetailsPageProps> = () => {
       }
     } catch (error) {
       console.error('Error fetching data:', error);
-    } finally {
-      setLoading(false);
     }
   }, [id]);
 
@@ -33,15 +29,7 @@ const DetailsPage: FC<DetailsPageProps> = () => {
   }, [fetchPokemonDetailsData]);
 
   return (
-    <div>
-      {loading ? (
-        <div className="flex justify-center items-center h-screen">
-          <span className="loading loading-spinner w-20"></span>
-        </div>
-      ) : (
-        pokemonDetails && <PokemonDetails details={pokemonDetails} />
-      )}
-    </div>
+    <div>{pokemonDetails && <PokemonDetails details={pokemonDetails} />}</div>
   );
 };
 
