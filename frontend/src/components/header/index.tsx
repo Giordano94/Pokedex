@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import pokemonLogo from '/public/images/pokemon-logo.png';
 import SearchInput from '../search-input';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useHeaderContext } from '../../context/header-contex';
 
 const Header: FC = () => {
@@ -23,6 +23,9 @@ const Header: FC = () => {
         src={pokemonLogo}
         alt="pokemon-logo"
       />
+      <div>
+        <Link to={'/favorite'}>Favoritos</Link>
+      </div>
       {!isPokemonRoute && (
         <div className="mt-6 flex-grow md:flex-grow-0">
           <SearchInput onChange={setSearchTerm} />
