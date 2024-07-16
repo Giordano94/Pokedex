@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Pokemon, PokemonDetails } from '../ types';
 
-const BASE_URL = 'https://pokeapi.co/api/v2/pokemon';
+const BASE_URL = 'http://localhost:3333/pokeapi';
 
 const fetchDetailedPokemons = async (
   pokemons: Pokemon[]
@@ -27,20 +27,16 @@ export const fetchPokemons = async (
 ): Promise<PokemonDetails[]> => {
   try {
     if (searchTerm) {
-      const response = await axios.get(`${BASE_URL}/?limit=150}`);
-      const pokemons: Pokemon[] = response.data.results;
-
-      const filteredPokemons = (await pokemons).filter((pokemon) =>
-        pokemon.name.startsWith(searchTerm.toLowerCase())
+      const response = await axios.get(
+        `${BASE_URL}/searchByName/${searchTerm}}`
       );
+      const pokemons: PokemonDetails[] = response.data;
 
-      const detailedPokemons = fetchDetailedPokemons(filteredPokemons);
-
-      return detailedPokemons;
+      return pokemons;
     }
 
     const response = await axios.get(
-      `${BASE_URL}?offset=${offset}&limit=${limit}`
+      `${BASE_URL}/list?offset=${offset}&limit=${limit}`
     );
     const pokemons: Pokemon[] = response.data.results;
 
@@ -58,13 +54,13 @@ export const fetchPokemonDetails = async (
 ): Promise<PokemonDetails> => {
   try {
     const response = await axios.get<PokemonDetails>(
-      `${BASE_URL}/${pokemonId}`
+      `${BASE_URL}/searchById/${pokemonId}`
     );
 
     const details = response.data;
     const characteristicId = details.id;
     const characteristicResponse = await axios.get(
-      `https://pokeapi.co/api/v2/characteristic/${characteristicId}`
+      `${BASE_URL}/characteristics/${characteristicId}`
     );
 
     details.characteristics = characteristicResponse.data;
