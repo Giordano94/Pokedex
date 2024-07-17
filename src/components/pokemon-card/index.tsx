@@ -16,7 +16,7 @@ const PokemonCard: FC<PokemonCardProps> = ({ image, id, name, types }) => {
       <span
         key={index}
         className={`badge m-1 font-black px-3 py-3  ${
-          typeColors[type.toLowerCase()]
+          typeColors[type?.toLowerCase()]
         }`}
         style={{ color: '#f2f2f2' }}
       >
