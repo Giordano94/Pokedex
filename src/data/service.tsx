@@ -1,24 +1,7 @@
 import axios from 'axios';
-import { Pokemon, PokemonDetails } from '../ types';
+import { PokemonDetails } from '../ types';
 
 const BASE_URL = 'http://localhost:3333/pokeapi';
-
-const fetchDetailedPokemons = async (
-  pokemons: Pokemon[]
-): Promise<PokemonDetails[]> => {
-  try {
-    const detailedPokemons = await Promise.all(
-      pokemons.map(async (pokemon) => {
-        const pokemonDetail = await axios.get<PokemonDetails>(pokemon.url);
-        return pokemonDetail.data;
-      })
-    );
-    return detailedPokemons;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return [];
-  }
-};
 
 export const fetchPokemons = async (
   offset = 0,
@@ -38,11 +21,10 @@ export const fetchPokemons = async (
     const response = await axios.get(
       `${BASE_URL}/list?offset=${offset}&limit=${limit}`
     );
-    const pokemons: Pokemon[] = response.data.results;
 
-    const detailedPokemons = fetchDetailedPokemons(pokemons);
+    const pokemons: PokemonDetails[] = response.data;
 
-    return detailedPokemons;
+    return pokemons;
   } catch (error) {
     console.error('Error fetching data:', error);
     return [];
