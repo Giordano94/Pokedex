@@ -20,11 +20,12 @@ export interface Characteristics {
 }
 
 export interface PokemonDetails {
+  image: string;
   id: number;
   name: string;
   height: number;
   weight: number;
-  types: Array<{ type: { name: string } }>;
+  types: string[];
   abilities: PokemonAbilities[];
   characteristics: Characteristics;
   sprites: { other: { showdown: { front_default: string } } };
