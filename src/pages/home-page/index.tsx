@@ -8,6 +8,7 @@ import { useHeaderContext } from '../../context/header-contex';
 
 const Home: FC = () => {
   const [pokemonList, setPokemonList] = useState<PokemonDetails[]>([]);
+
   const [page, setPage] = useState<number>(0);
   const [hasMore, setHasMore] = useState<boolean>(true);
 
@@ -54,10 +55,10 @@ const Home: FC = () => {
     return pokemonList.map((pokemon) => (
       <PokemonCard
         key={pokemon.id}
-        image={pokemon.sprites.other.showdown.front_default}
+        image={pokemon.image}
         id={pokemon.id}
         name={pokemon.name}
-        types={pokemon.types.map((type) => type.type.name)}
+        types={pokemon.types}
       />
     ));
   }, [pokemonList]);
