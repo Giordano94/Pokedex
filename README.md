@@ -1,4 +1,4 @@
-# Projeto Front-End Pokémon
+# Pokedex
 
 Este projeto é uma aplicação front-end para exibir e gerenciar uma lista de Pokémon.
 
