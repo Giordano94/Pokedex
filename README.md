@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+# Projeto Front-End Pokémon
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação front-end para exibir e gerenciar uma lista de Pokémon usando a PokéAPI. O projeto permite pesquisar Pokémon por nome, listar características e gerenciar favoritos.
 
-Currently, two official plugins are available:
+## Índice
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Descrição](#descrição)
+- [Tecnologias](#tecnologias)
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
 
-## Expanding the ESLint configuration
+## Descrição
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+A aplicação permite aos usuários visualizar uma lista de Pokémon, pesquisar por nome ou ID, e gerenciar uma lista de Pokémon favoritos. Ela se comunica com uma API back-end que, por sua vez, faz requisições à PokéAPI para obter os dados dos Pokémon.
 
-- Configure the top-level `parserOptions` property like this:
+## Tecnologias
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- React
+- TypeScript
+- Axios
+- TailwindCSS
+- Infinite Scroll
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Instalação
+
+Para configurar o projeto localmente, siga os seguintes passos:
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
+
