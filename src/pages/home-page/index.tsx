@@ -8,10 +8,8 @@ import { useHeaderContext } from '../../context/header-contex';
 
 const Home: FC = () => {
   const [pokemonList, setPokemonList] = useState<PokemonDetails[]>([]);
-
   const [page, setPage] = useState<number>(0);
   const [hasMore, setHasMore] = useState<boolean>(true);
-
   const { searchTerm } = useHeaderContext();
 
   const [debouncedSearchTerm] = useDebounce(searchTerm, 700);
@@ -20,6 +18,7 @@ const Home: FC = () => {
     async (offset = 0) => {
       try {
         const data = await fetchPokemons(offset, 8, debouncedSearchTerm);
+
         if (data) {
           setPokemonList((prevList) =>
             offset === 0 ? data : [...prevList, ...data]
@@ -65,18 +64,24 @@ const Home: FC = () => {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center pt-32 px-4">
-        <InfiniteScroll
-          dataLength={pokemonList.length}
-          next={fetchMoreData}
-          hasMore={hasMore}
-          loader={<h4>Loading...</h4>}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {renderPokemonCard}
-          </div>
-        </InfiniteScroll>
-      </div>
+      {pokemonList.length === 0 ? (
+        <div className="flex items-center justify-center h-80">
+          <p className="text-xl text-red-600">Nenhum pokemon encontrado.</p>
+        </div>
+      ) : (
+        <div className="flex flex-col items-center justify-center pt-32 px-4">
+          <InfiniteScroll
+            dataLength={pokemonList.length}
+            next={fetchMoreData}
+            hasMore={hasMore}
+            loader={<h4>Loading...</h4>}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              {renderPokemonCard}
+            </div>
+          </InfiniteScroll>
+        </div>
+      )}
     </div>
   );
 };
