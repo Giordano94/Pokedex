@@ -28,9 +28,13 @@ Para configurar o projeto localmente, siga os seguintes passos:
 1. Clone o repositório:
    
    git clone https://github.com/Giordano94/Pokedex.git
+  
+
+2. Navegue até o diretório do projeto
+   
    cd Pokedex
 
-2. Instale as dependências:
+3. Instale as dependências:
    
    bun install
 
