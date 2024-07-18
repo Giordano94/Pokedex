@@ -13,7 +13,11 @@ export const fetchPokemons = async (
       const response = await axios.get(
         `${BASE_URL}/searchByName/${searchTerm}}`
       );
-      const pokemons: PokemonDetails[] = response.data;
+      const pokemons: PokemonDetails[] | { error: string } = response.data;
+
+      if ('error' in pokemons) {
+        return [];
+      }
 
       return pokemons;
     }
