@@ -40,9 +40,9 @@ Para configurar o projeto localmente, siga os seguintes passos:
 
 ## Uso
 
-Para iniciar o projeto, use o comando:
+   Para iniciar o projeto, use o comando:
 
-bun dev 
+   bun dev 
 
 
 
