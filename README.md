@@ -1,6 +1,6 @@
 # Projeto Front-End Pokémon
 
-Este projeto é uma aplicação front-end para exibir e gerenciar uma lista de Pokémon usando a PokéAPI. O projeto permite pesquisar Pokémon por nome, listar características e gerenciar favoritos.
+Este projeto é uma aplicação front-end para exibir e gerenciar uma lista de Pokémon.
 
 ## Índice
 
@@ -8,13 +8,11 @@ Este projeto é uma aplicação front-end para exibir e gerenciar uma lista de P
 - [Tecnologias](#tecnologias)
 - [Instalação](#instalação)
 - [Uso](#uso)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Contribuição](#contribuição)
-- [Licença](#licença)
+
 
 ## Descrição
 
-A aplicação permite aos usuários visualizar uma lista de Pokémon, pesquisar por nome ou ID, e gerenciar uma lista de Pokémon favoritos. Ela se comunica com uma API back-end que, por sua vez, faz requisições à PokéAPI para obter os dados dos Pokémon.
+A aplicação permite aos usuários visualizar uma lista de Pokemons, pesquisar por nome e ver detalhes dos Pokemons.
 
 ## Tecnologias
 
@@ -22,15 +20,28 @@ A aplicação permite aos usuários visualizar uma lista de Pokémon, pesquisar 
 - TypeScript
 - Axios
 - TailwindCSS
-- Infinite Scroll
 
 ## Instalação
 
 Para configurar o projeto localmente, siga os seguintes passos:
 
 1. Clone o repositório:
+   
+   git clone https://github.com/Giordano94/Pokedex.git
+   cd Pokedex
 
-   ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+2. Instale as dependências:
+   
+   bun install
+
+## Uso
+
+Para iniciar o projeto, use o comando:
+
+bun dev 
+
+
+
+
+   
 
